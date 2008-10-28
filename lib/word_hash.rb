@@ -15,10 +15,9 @@ class WordHash
   end
   
   def get_anagrams(word)
-    wordlist = @words.keys.select {|w| word.contains?(w)}
     result = []
-    wordlist.each do |w|
-      result << @words[w]
+    wordlist = @words.each do |k,w|
+      result << w if word.contains?(k)
     end
     result
   end
